@@ -38,10 +38,11 @@
 
 .news-body {
   display: flex;
-  height: 90vh;
-  width: 100vw;
+  height: 86vh;
+  width: 96vw;
   background: #3B3F52;
-  overflow: scroll;
+  overflow-x: hidden; 
+  overflow-y: scroll; 
   padding: 2vw;
 }
 
@@ -82,10 +83,37 @@
 .articles-wrapper {
   display: flex;
   height: 22vw;
-  flex-wrap: nowrap;
-  overflow-x: scroll;
   margin-top: 1vw;
   margin-bottom: 2vw;
 }
 
+.articles-wrapper-header {
+  display: flex;
+  width: 96vw;
+  justify-content: space-between;
+  align-items: center;
+}
 
+.h-scroll-button {
+  display: flex;
+  height: 2vw;
+  align-items: center;
+  justify-content: center;
+  font-family: "Work Sans";
+  background: transparent;
+  color: white;
+  width: 2vw;
+}
+
+.h-scroll-button:disabled {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.h-scroll-buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 6vw;
+  background: rgba(255, 255, 255, 0.5);
+  color: white;
+  border-radius: 1vw;
+}
