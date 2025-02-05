@@ -8,8 +8,32 @@
 .header {
   display: flex;
   height: 10vh;
-  width: 100vw;
+  width: 96vw;
   background: white;
+  justify-content: space-between;
+  padding-left: 2vw;
+  padding-right: 2vw;
+  align-items: center;
+}
+
+.header-buttons-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 10vh;
+  width: 13vw;
+}
+
+.header-button {
+  font-family: 'Work Sans';
+  font-size: 1.3vw;
+}
+
+.logo {
+  width: 3vw;
+  height: 3vw;
+  background: gray;
+  border-radius: 0.5vw;
 }
 
 .news-body {
@@ -18,4 +42,50 @@
   width: 100vw;
   background: #3B3F52;
   overflow: scroll;
+  padding: 2vw;
 }
+
+.page-heading {
+  color: white;
+  font-family: "Work Sans";
+  font-size: 5vw;
+  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.25));
+  padding-bottom: 3vw;
+}
+
+.page-subheading {
+  color: white;
+  font-family: "Work Sans";
+  font-size: 1.5vw;
+  font-weight: bold;
+  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.25));
+}
+
+.article-preview {
+  display: flex;
+  align-items: flex-end;
+  width: 15vw;
+  height: 20vw;
+  background: lightgray;
+  border-radius: 1vw;
+  margin-right: 2vw;
+}
+
+.article-preview-title {
+  font-family: "Work Sans";
+  color: white;
+  font-size: 1vw;
+  filter: drop-shadow(1px 1px 3px rgba(0, 0, 0, 0.5));
+  padding: 1vw;
+}
+
+.articles-wrapper {
+  display: flex;
+  height: 22vw;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  margin-top: 1vw;
+  margin-bottom: 2vw;
+}
+
+
