@@ -5,6 +5,11 @@
   flex-direction: column;
 }
 
+p {
+  color: white;
+  font-family: "Work Sans";
+}
+
 .header {
   display: flex;
   height: 10vh;
@@ -70,6 +75,12 @@
   background: lightgray;
   border-radius: 1vw;
   margin-right: 2vw;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.article-preview:hover {
+  transform: scale(1.05);
 }
 
 .article-preview-title {

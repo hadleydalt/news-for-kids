@@ -1,9 +1,8 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import NewsPage from './NewsPage'
 import './App.css'
 import Header from './Header'
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
+import ArticlePage from "./ArticlePage"
 
 function App() {
   
@@ -12,7 +11,14 @@ function App() {
     <div className="App">
       <Header />
       <div className="news-body">
-        <NewsPage />
+      <Router>
+        <Routes>
+          <Route path="/" element={
+              <NewsPage />
+          } />
+          <Route path="/article/:title" element={<ArticlePage />} />
+        </Routes>
+      </Router>
       </div>
     </div>
   )
