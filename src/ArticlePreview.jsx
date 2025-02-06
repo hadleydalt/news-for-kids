@@ -27,19 +27,48 @@ const ArticlePreview = ({ title, url }) => {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
 
+    const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
+
+    async function simplifyText(text) {
+        try {
+
+        const response = await fetch("https://api.openai.com/v1/chat/completions", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${apiKey}` 
+            },
+            body: JSON.stringify({
+                model: "gpt-4o-mini",
+                messages: [{ role: "system", content: "You are a helpful assistant that simplifies text into simple words." },
+                           { role: "user", content: `Simplify this text: ${text}` }],
+                max_tokens: 100
+            })
+        });
+    
+        if (!response.ok) {
+            throw new Error(`API error: ${response.status} ${response.statusText}`);
+        }
+
+        const data = await response.json();
+        return data.choices[0].message.content.trim();
+    } catch (error) {
+        console.error("Error simplifying text:", error);
+        return "Error simplifying text. Please try again.";
+    }
+    }
+
     const handleClick = async () => {
         setLoading(true);
 
         try {
-            // Fetch the article content from the scraping server
             const response = await axios.get(`http://localhost:5002/scrape?url=${url}`);
-            const articleContent = response.data.content;  // Assuming the backend sends a 'content' field
+            const articleContent = response.data.content;  
 
 
-
-            // Navigate to the article page and pass both title and content in the state
+            const simplifiedText = await simplifyText(articleContent)
             navigate(`/article/${encodeURIComponent(title)}`, {
-                state: { title, content: articleContent }
+                state: { title, content: simplifiedText } // articleContent
             });
         } catch (error) {
             console.error("Error fetching article:", error);

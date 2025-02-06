@@ -2,8 +2,9 @@ import { useState, useEffect, useRef } from 'react'
 import axios from 'axios'
 import ArticlePreview from './ArticlePreview'
 
-const categories = ["politics", "technology", "health", "culture", "environment", "education", "art", "sports"];
-const dictionary = {
+//const categories = ["politics", "technology", "health", "culture", "environment", "education", "art", "sports"];
+const categories = ["politics", "technology", "culture"];
+/*const dictionary = {
     "politics": "Leaders and Laws 🪙 📄",
     "technology": "Inventions 🛰️ 💻",
     "health": "Health and Medicine 💊 🩻",
@@ -12,6 +13,11 @@ const dictionary = {
     "education": "School and Learning 👩‍🏫 ✏️", 
     "art": "Art 🎨 🎭",
     "sports": "Sports 🚴‍♂️ 🏈"
+};*/
+const dictionary = {
+    "politics": "Leaders and Laws 🪙 📄",
+    "technology": "Inventions 🛰️ 💻",
+    "culture": "Life Around the World 🕌 🪭"
 };
 
 export default function NewsPage() {
@@ -37,23 +43,6 @@ export default function NewsPage() {
     const [articlesByCategory, setArticlesByCategory] = useState({});
 
     useEffect(() => {
-        /*const fetchArticles = async () => {
-            const fetchedArticles = {};
-
-            await Promise.all(
-                categories.map(async (category) => {
-                    try {
-                        const response = await axios.get(`http://localhost:5001/api/news/${category}`);
-                        fetchedArticles[category] = response.data.data || [];
-                    } catch (error) {
-                        console.error(`Error fetching news for ${category}:`, error);
-                        fetchedArticles[category] = [];
-                    }
-                })
-            );
-
-            setArticlesByCategory(fetchedArticles);
-        };*/
 
         // delay to avoid overloading:
 
