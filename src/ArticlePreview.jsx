@@ -68,7 +68,7 @@ const ArticlePreview = ({ title, url }) => {
 
             const simplifiedText = await simplifyText(articleContent)
             navigate(`/article/${encodeURIComponent(title)}`, {
-                state: { title, content: simplifiedText } // articleContent
+                state: { title, content: articleContent } // simplifiedText
             });
         } catch (error) {
             console.error("Error fetching article:", error);
